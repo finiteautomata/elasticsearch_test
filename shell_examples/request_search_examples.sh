@@ -74,3 +74,16 @@ curl -XPOST $URL -d '{
     }
 
 }'
+
+echo "==========================================="
+echo "This query counts  chapters that contain 'evolution'"
+echo ""
+URL='http://localhost:9200/darwin-origin/_search?pretty=true&search_type=count'
+curl -XPOST $URL -d '{
+    "query": {
+        "match": {
+            "text": "evolution"
+        }
+    }
+
+}'
